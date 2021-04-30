@@ -4,4 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+import '@fontsource/nunito'
+import '@fontsource/nunito/700.css'
+import './src/css/index.css'

@@ -1,28 +1,26 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    <div className="mt-16">
+      <h1 className="text-4xl font-bold mb-8">Welcome!</h1>
+      <h2 className="text-lg mb-32">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci deserunt dolorum, ducimus laudantium maiores placeat quae reiciendis rerum voluptate? Atque enim error, fugit molestiae porro quia quo! Eaque, ut!</h2>
+      <div className="flex justify-items-center justify-center">
+        <StaticImage
+          className="shadow-lg"
+          src="../images/gatsby-astronaut.png"
+          width={300}
+          quality={95}
+          formats={['AUTO', 'WEBP', 'AVIF']}
+          alt="A Gatsby astronaut"
+        />
+      </div>
+    </div>
   </Layout>
 )
 
