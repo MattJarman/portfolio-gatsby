@@ -3,30 +3,29 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Nunito', 'sans-serif']
+      sans: ['Nunito', 'sans-serif'],
     },
     extend: {
       colors: {
         'prussian-blue': {
-          DEFAULT: '#0D2538'
+          DEFAULT: '#0D2538',
         },
         'rich-black': {
-          DEFAULT: '#091a28'
-        }
-      }
+          DEFAULT: '#091a28',
+        },
+      },
     },
     minHeight: {
-      2: '0.5rem',
-      4: '1rem',
-      6: '1.5rem',
-      8: '2rem',
+      12: '3rem',
       16: '4rem',
-      32: '8rem',
-      64: '16rem'
-    }
+    },
+    minWidth: {
+      12: '3rem',
+      16: '4rem',
+    },
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 }

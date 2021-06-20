@@ -30,7 +30,7 @@ const Hero = ({ content }) => {
   return (
     <section
       id="hero"
-      className="flex flex-col px-4 pt-32 h-view-minus-nav sm:pt-64"
+      className="flex flex-col px-4 pt-32 min-h-view-minus-nav sm:pt-64"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -74,6 +74,7 @@ export const pageQuery = graphql`
             skills {
               name
               icon
+              proficiency
             }
           }
           frontmatter {
