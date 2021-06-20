@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Sun = (props) => {
+const Sun = props => {
   return (
     <svg
       {...props}

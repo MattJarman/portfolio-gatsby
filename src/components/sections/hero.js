@@ -1,24 +1,40 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import Icon from '../icons'
+import { socialMedia } from '../../../config'
 
 const Hero = () => {
   return (
-      <section id="hero" className="h-screen">
-        <div className="mt-16">
-            <h1 className="text-4xl font-bold mb-8">Welcome!</h1>
-            <h2 className="text-lg mb-32">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci deserunt dolorum, ducimus laudantium maiores placeat quae reiciendis rerum voluptate? Atque enim error, fugit molestiae porro quia quo! Eaque, ut!</h2>
-            <div className="flex justify-items-center justify-center">
-            <StaticImage
-                className="shadow-lg"
-                src="../../images/gatsby-astronaut.png"
-                width={300}
-                quality={95}
-                formats={['AUTO', 'WEBP', 'AVIF']}
-                alt="A Gatsby astronaut"
-            />
-            </div>
+    <section
+      id="hero"
+      className="flex flex-col px-4 pt-32 h-view-minus-nav sm:pt-64"
+    >
+      <div className="container flex flex-col flex-grow h-full mx-auto mb-16">
+        <p className="text-4xl font-bold sm:text-6xl dark:text-green-400">
+          Matthew Jarman
+        </p>
+        <p className="mb-4 text-2xl font-bold text-gray-500 dark:text-gray-300 sm:text-4xl">
+          Software Developer
+        </p>
+        <div className="flex flex-row">
+          {socialMedia.map(({ name, icon, url }, index) => {
+            return (
+              <a
+                key={`social-media-${index}`}
+                target="_blank"
+                rel="noreferrer"
+                href={url}
+                alt={name}
+              >
+                <Icon
+                  className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-10 h-10 mr-2"
+                  name={icon}
+                />
+              </a>
+            )
+          })}
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

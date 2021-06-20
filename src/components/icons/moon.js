@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Moon = (props) => {
+const Moon = props => {
   return (
     <svg
       {...props}

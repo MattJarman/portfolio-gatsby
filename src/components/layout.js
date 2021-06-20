@@ -14,7 +14,7 @@ import Header from './header'
 if (typeof window !== 'undefined') {
   console.log('here!!!')
   require('smooth-scroll')('a[href*="#"]', {
-    speed: 300
+    speed: 300,
   })
 }
 
@@ -36,19 +36,17 @@ const Layout = ({ children }) => {
         <div className="flex flex-col justify-between container mx-auto px-16">
           <main className="mb-auto">{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
-            {' '}
+            © {new Date().getFullYear()}, Built with{' '}
             <a href="https://www.gatsbyjs.com">Gatsby</a>
           </footer>
         </div>
-
       </div>
     </>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

@@ -8,8 +8,8 @@ import About from '../components/sections/about'
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <Hero/>
-    <About/>
+    <Hero />
+    <About />
   </Layout>
 )
 
