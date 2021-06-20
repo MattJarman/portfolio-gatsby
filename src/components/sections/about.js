@@ -24,7 +24,7 @@ const About = ({ content }) => {
     }
 
     if (imageOnScreen) {
-      imageControls.start({ opacity: 1, y: 0 })
+      imageControls.start({ opacity: 1, x: 0 })
     }
   }, [textControls, imageControls, textOnScreen, imageOnScreen])
 
