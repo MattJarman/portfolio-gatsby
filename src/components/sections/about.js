@@ -29,7 +29,7 @@ const About = ({ content }) => {
   }, [textControls, imageControls, textOnScreen, imageOnScreen])
 
   return (
-    <section id="about" className="flex flex-col h-screen">
+    <section id="about" className="flex flex-col h-view">
       <div className="container flex flex-col flex-grow">
         <div className="flex flex-col items-center flex-grow lg:flex-row">
           <motion.div

@@ -19,6 +19,11 @@ module.exports = {
         icon: 'person',
       },
       {
+        name: 'Skills',
+        url: '/#skills',
+        icon: 'chart',
+      },
+      {
         name: 'Portfolio',
         url: '/#portfolio',
         icon: 'github',

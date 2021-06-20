@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Hero from '../components/sections/hero'
 import About from '../components/sections/about'
+import Skills from '../components/sections/skills'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
@@ -16,6 +17,7 @@ const IndexPage = ({ data }) => {
       <Seo title={seoTitle} />
       <Hero content={data.hero.edges} />
       <About content={data.about.edges} />
+      <Skills content={data.skills.edges} />
     </Layout>
   )
 }
@@ -61,6 +63,21 @@ export const pageQuery = graphql`
                 )
               }
             }
+          }
+        }
+      }
+    }
+    skills: allMdx(filter: { fileAbsolutePath: { regex: "/index/skills/" } }) {
+      edges {
+        node {
+          exports {
+            skills {
+              name
+              icon
+            }
+          }
+          frontmatter {
+            title
           }
         }
       }
