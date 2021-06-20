@@ -17,12 +17,12 @@ module.exports = {
     menu: [
       {
         name: 'Me',
-        url: '/',
+        url: '/#about',
         icon: 'person'
       },
       {
         name: 'Portfolio',
-        url: '/portfolio',
+        url: '/#portfolio',
         icon: 'github'
       }
     ]

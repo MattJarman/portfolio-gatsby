@@ -25,7 +25,7 @@ function StyledNav () {
           <div
             className="flex justify-between items-center border-b-2 border-gray-100 dark:border-prussian-blue transition-colors duration-300 py-4 md:justify-start md:space-x-4 px-4">
             <div className="flex mr-2">
-              <a>
+              <Link to="/">
                 <span className="sr-only">Home</span>
                 <svg id="Layer_1" className="w-10 h-10 fill-current text-green-500" data-name="Layer 1"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
@@ -33,7 +33,7 @@ function StyledNav () {
                   <path className="cls-1"
                         d="M247.08,48.53q-4.62-5.19-12.53-5.2c-.21,0-.41,0-.61,0l-.66,0q-11,0-17.52,12.77L150.13,181.72,84.21,56.1Q77.67,43.34,66.09,43.33q-8.31,0-13.21,5.2T48,62.34v175.8q0,8.31,4.45,13.06T64.61,256q7.71,0,12.32-4.9t4.6-12.91V117.27l50.78,94.14q3.57,6.84,7.72,9.8a16.42,16.42,0,0,0,9.8,3,15.87,15.87,0,0,0,9.8-3.12,29.53,29.53,0,0,0,7.73-9.65l50.3-95.28v79q0,14.55-5.55,21.68t-16.36,7.72l-8.44.59q-7.12.6-10.42,4.31t-3.3,10.84q0,16.64,20.32,15.73l8.44-.59q49.35-4.16,49.35-60.28V62.34Q251.7,53.73,247.08,48.53Z" />
                 </svg>
-              </a>
+              </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <button
@@ -56,14 +56,14 @@ function StyledNav () {
             <nav className="hidden md:flex lg:flex-1 space-x-6">
               {menu.map(({ name, url }, index) => {
                 return (
-                  <Link
+                  <a
                     key={`main-menu-${index}`}
-                    to={url}
+                    href={url}
                     activeClassName="text-green-500"
                     className="text-2xl font-bold text-gray-400 hover:text-gray-500"
                   >
                     {name}
-                  </Link>
+                  </a>
                 )
               })}
             </nav>
@@ -90,7 +90,7 @@ function StyledNav () {
               className="transition-colors duration-300 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-rich-black divide-y-2 divide-gray-100 dark:divide-prussian-blue">
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
-                  <a>
+                  <a href="/">
                     <span className="sr-only">Me</span>
                     <svg id="Layer_1" className="w-10 h-10 fill-current text-green-500" data-name="Layer 1"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
@@ -117,9 +117,9 @@ function StyledNav () {
                   <nav className="grid gap-y-8">
                     {menu.map(({ name, url, icon }, index) => {
                       return (
-                        <Link
+                        <a
                           key={`mobile-menu-${index}`}
-                          to={url}
+                          href={url}
                           className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-prussian-blue text-gray-900"
                         >
                           <div className="flex items-center justify-center w-6 text-green-500">
@@ -128,7 +128,7 @@ function StyledNav () {
                           <span className="ml-3 text-base text-gray-700 dark:text-gray-200 font-bold">
                           {name}
                     </span>
-                        </Link>
+                        </a>
                       )
                     })}
                   </nav>
