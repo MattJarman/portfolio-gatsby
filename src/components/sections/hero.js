@@ -37,13 +37,13 @@ const Hero = ({ content }) => {
         animate={greetingControls}
         className="container flex flex-col flex-grow h-full mx-auto mb-16"
       >
-        <p className="text-4xl font-bold sm:text-6xl dark:text-green-400">
+        <p className="mb-2 text-4xl font-bold sm:text-6xl dark:text-green-400">
           {frontmatter.title}
         </p>
-        <p className="mb-2 text-2xl font-bold text-gray-500 dark:text-gray-300 sm:text-4xl">
+        <p className="mb-2 text-2xl font-semibold text-gray-500 dark:text-gray-300 sm:text-4xl">
           {frontmatter.subtitle}
         </p>
-        <div className="mb-4 text-sm md:text-base text-gray-500">
+        <div className="mb-12 text-base md:text-base text-gray-400">
           <MDXRenderer>{body}</MDXRenderer>
         </div>
         <motion.div
@@ -61,7 +61,7 @@ const Hero = ({ content }) => {
                 alt={name}
               >
                 <Icon
-                  className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-10 h-10 mr-2"
+                  className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-12 h-12 mr-2"
                   name={icon}
                 />
               </a>

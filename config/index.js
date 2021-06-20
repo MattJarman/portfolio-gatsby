@@ -14,7 +14,7 @@ module.exports = {
   navLinks: {
     menu: [
       {
-        name: 'Me',
+        name: 'About',
         url: '/#about',
         icon: 'person',
       },

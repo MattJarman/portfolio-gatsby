@@ -71,7 +71,7 @@ function StyledNav() {
                   <a
                     key={`main-menu-${index}`}
                     href={url}
-                    className="text-2xl font-bold text-gray-400 hover:text-gray-500"
+                    className="text-2xl text-gray-400 hover:text-gray-500"
                   >
                     {name}
                   </a>
@@ -161,7 +161,7 @@ function StyledNav() {
                               name={icon}
                             />
                           </div>
-                          <span className="ml-3 text-base text-gray-700 dark:text-gray-200 font-bold">
+                          <span className="ml-3 text-base text-gray-700 dark:text-gray-200">
                             {name}
                           </span>
                         </a>
