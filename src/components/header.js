@@ -21,7 +21,7 @@ function StyledNav() {
     <nav className="relative transition-colors duration-300 dark:bg-rich-black">
       <div>
         <div className="w-full mx-auto">
-          <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-prussian-blue transition-colors duration-300 py-4 md:justify-start md:space-x-4 px-4">
+          <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-prussian-blue transition-colors duration-300 py-4 md:justify-start md:space-x-4 px-4 h-20">
             <div className="flex mr-2">
               <a className="cursor-pointer" href="/#top">
                 <span className="sr-only">Home</span>

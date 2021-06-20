@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { debounce } from 'lodash'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
@@ -18,6 +19,25 @@ if (typeof window !== 'undefined') {
 }
 
 const Layout = ({ children }) => {
+  // This is to sort out jank with mobile browser heights
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const resizeHandler = event => {
+      const vh = event.target.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+    }
+
+    window.addEventListener('resize', debounce(resizeHandler, 100), false)
+
+    return () => {
+      console.log('removing listener')
+      window.removeEventListener('resize', resizeHandler)
+    }
+  })
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

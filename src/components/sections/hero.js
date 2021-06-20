@@ -28,7 +28,10 @@ const Hero = ({ content }) => {
   }, [greetingControls, socialControls])
 
   return (
-    <section id="hero" className="flex flex-col px-4 pt-32 sm:pt-64">
+    <section
+      id="hero"
+      className="flex flex-col px-4 pt-32 h-view-minus-nav sm:pt-64"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={greetingControls}
