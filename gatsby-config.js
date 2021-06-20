@@ -4,21 +4,38 @@ module.exports = {
   siteMetadata: {
     title: 'Matthew Jarman',
     description: 'My portfolio site!',
-    author: '@mattjarman'
+    author: '@mattjarman',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
+    'gatsby-plugin-robots-txt',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-gatsby-cloud',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: path.join(__dirname, '/src/images')
-      }
+        name: 'content',
+        path: path.join(__dirname, 'content'),
+      },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+              quality: 80,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -28,9 +45,8 @@ module.exports = {
         background_color: '#000000',
         theme_color: '#091a28',
         display: 'standalone',
-        icon: 'src/images/icon.svg'
-      }
+        icon: 'src/images/icon.svg',
+      },
     },
-    'gatsby-plugin-gatsby-cloud'
-  ]
+  ],
 }

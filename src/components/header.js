@@ -23,7 +23,7 @@ function StyledNav() {
         <div className="w-full mx-auto">
           <div className="flex justify-between items-center border-b-2 border-gray-100 dark:border-prussian-blue transition-colors duration-300 py-4 md:justify-start md:space-x-4 px-4">
             <div className="flex mr-2">
-              <a to="/">
+              <a className="cursor-pointer" href="/#top">
                 <span className="sr-only">Home</span>
                 <svg
                   id="Layer_1"
@@ -105,7 +105,7 @@ function StyledNav() {
             <div className="transition-colors duration-300 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-rich-black divide-y-2 divide-gray-100 dark:divide-prussian-blue">
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
-                  <a href="/">
+                  <a className="cursor-pointer" href="/#top">
                     <span className="sr-only">Me</span>
                     <svg
                       id="Layer_1"
