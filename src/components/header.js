@@ -151,6 +151,7 @@ function StyledNav() {
                     {menu.map(({ name, url, icon }, index) => {
                       return (
                         <a
+                          onClick={hide}
                           key={`mobile-menu-${index}`}
                           href={url}
                           className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-prussian-blue text-gray-900"

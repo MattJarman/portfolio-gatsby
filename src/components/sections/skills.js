@@ -69,7 +69,7 @@ const Skills = ({ content }) => {
                     ref={ref}
                     initial={{ opacity: 0, x: 20 }}
                     animate={barBackgroundControls}
-                    className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-md"
+                    className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-sm"
                   >
                     <div style={{ width: `${proficiency}%` }}>
                       <motion.div
@@ -77,7 +77,7 @@ const Skills = ({ content }) => {
                         ref={ref}
                         initial={{ opacity: 0, width: 0 }}
                         animate={barControls}
-                        className="h-5 md:h-8 shadow-none flex flex-col font-bold px-2 text-gray-800 justify-center bg-green-400 text-xs md:text-sm"
+                        className="h-5 md:h-6 xl:h-8 shadow-none flex flex-col font-bold px-2 text-gray-800 justify-center bg-green-400 text-xs md:text-sm"
                       >
                         {name}
                       </motion.div>
