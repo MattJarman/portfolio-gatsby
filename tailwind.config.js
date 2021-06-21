@@ -13,6 +13,9 @@ module.exports = {
         'rich-black': {
           DEFAULT: '#091a28',
         },
+        'aws-blue': {
+          DEFAULT: '#252f3e',
+        },
       },
     },
     minHeight: {

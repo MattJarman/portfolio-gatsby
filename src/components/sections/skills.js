@@ -11,10 +11,13 @@ const Skills = ({ content }) => {
   const ref = useRef()
   const onScreen = useOnScreen(ref, 0.5)
 
+  const iconControls = useAnimation()
   const barControls = useAnimation()
+  const barBackgroundControls = useAnimation()
 
   const sortedSkills = skills.sort((a, b) => a.proficiency < b.proficiency)
   const delay = 0.5 / sortedSkills.length
+  const delay2 = 0.1 / sortedSkills.length
 
   useEffect(() => {
     if (onScreen) {
@@ -23,13 +26,25 @@ const Skills = ({ content }) => {
         width: '100%',
         transition: { delay: i * delay },
       }))
+
+      iconControls.start(i => ({
+        opacity: 1,
+        x: 0,
+        transition: { delay: i * delay },
+      }))
+
+      barBackgroundControls.start(i => ({
+        opacity: 1,
+        x: 0,
+        transition: { delay: i * delay },
+      }))
     }
-  }, [onScreen, barControls])
+  }, [onScreen, barControls, iconControls, barBackgroundControls])
 
   return (
     <section id="skills" className="flex flex-col mt-32 md:h-view">
       <div className="container flex flex-col h-full">
-        <p className="flex mt-4 mb-8 text-2xl font-bold whitespace-no-wrap heading md:text-4xl dark:text-green-400 md:h-1/6">
+        <p className="flex mt-4 text-2xl font-bold whitespace-no-wrap heading md:text-4xl dark:text-green-400 mb-4 md:mb-0 md:h-1/6">
           {frontmatter.title}
         </p>
         <div className="flex items-center justify-center md:h-5/6">
@@ -37,13 +52,25 @@ const Skills = ({ content }) => {
             {sortedSkills.map(({ name, icon, proficiency }, index) => {
               return (
                 <div
-                  className="flex flex-row items-center justify-center mb-2 xl:mb-6"
+                  className="flex flex-row items-center justify-center mb-2 xl:mb-4"
                   key={`skills-${index}`}
                 >
-                  <div className="bg-gray-100 dark:bg-gray-800 shadow-md p-2 rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4">
+                  <motion.div
+                    custom={index}
+                    ref={ref}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={iconControls}
+                    className="bg-gray-100 dark:bg-gray-800 shadow-md p-2 rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4"
+                  >
                     <Icon className="w-6 h-6 xl:w-8 xl:h-8" name={icon} />
-                  </div>
-                  <div className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-md">
+                  </motion.div>
+                  <motion.div
+                    custom={index}
+                    ref={ref}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={barBackgroundControls}
+                    className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-md"
+                  >
                     <div style={{ width: `${proficiency}%` }}>
                       <motion.div
                         custom={index}
@@ -55,7 +82,7 @@ const Skills = ({ content }) => {
                         {name}
                       </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               )
             })}

@@ -9,14 +9,17 @@ import Moon from './moon'
 import Sun from './sun'
 
 import Javascript from './javascript'
+import Typescript from './typescript'
 import Docker from './docker'
 import Git from './git'
 import Laravel from './laravel'
 import MongoDB from './mongodb'
 import MySQL from './mysql'
+import AWS from './aws'
 import Node from './node'
 import PHP from './php'
 import ReactJS from './react'
+import Vue from './vue'
 
 const Icon = props => {
   switch (props.name.toLowerCase()) {
@@ -30,6 +33,10 @@ const Icon = props => {
       return <Chart {...props} />
     case 'javascript':
       return <Javascript {...props} />
+    case 'typescript':
+      return <Typescript {...props} />
+    case 'aws':
+      return <AWS {...props} />
     case 'docker':
       return <Docker {...props} />
     case 'git':
@@ -46,6 +53,8 @@ const Icon = props => {
       return <PHP {...props} />
     case 'react':
       return <ReactJS {...props} />
+    case 'vue':
+      return <Vue {...props} />
     case 'moon':
       return <Moon {...props} />
     case 'sun':
