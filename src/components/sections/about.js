@@ -29,7 +29,7 @@ const About = ({ content }) => {
   }, [textControls, imageControls, textOnScreen, imageOnScreen])
 
   return (
-    <section id="about" className="flex flex-col min-h-view">
+    <section id="about" className="flex flex-col">
       <div className="container flex flex-col flex-grow">
         <div className="flex flex-col items-center flex-grow lg:flex-row">
           <motion.div
@@ -38,7 +38,7 @@ const About = ({ content }) => {
             animate={textControls}
             className="text-gray-700 dark:text-gray-300"
           >
-            <p className="flex items-center mt-4 mb-8 text-2xl font-bold whitespace-no-wrap heading md:text-3xl dark:text-green-400">
+            <p className="flex items-center mt-4 mb-8 text-2xl font-bold whitespace-no-wrap heading md:text-4xl dark:text-green-400">
               {frontmatter.title}
             </p>
             <div className="text-base md:text-xl">
