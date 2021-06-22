@@ -53,18 +53,19 @@ const Hero = ({ content }) => {
         >
           {socialMedia.map(({ name, icon, url }, index) => {
             return (
-              <a
+              <motion.a
                 key={`social-media-${index}`}
                 target="_blank"
                 rel="noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 href={url}
-                alt={name}
               >
                 <Icon
-                  className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-12 h-12 mr-2"
+                  className="cursor-pointer text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-12 h-12 mr-2"
                   name={icon}
                 />
-              </a>
+              </motion.a>
             )
           })}
         </motion.div>

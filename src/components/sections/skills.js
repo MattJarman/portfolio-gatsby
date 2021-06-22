@@ -8,19 +8,26 @@ const Skills = ({ content }) => {
   const { frontmatter, exports } = content[0].node
   const { skills } = exports
 
-  const ref = useRef()
-  const onScreen = useOnScreen(ref, 0.5)
+  const skillsReference = useRef()
+  const titleReference = useRef()
 
+  const titleOnScreen = useOnScreen(titleReference)
+  const skillsOnScreen = useOnScreen(skillsReference, 0.5)
+
+  const titleControls = useAnimation()
   const iconControls = useAnimation()
   const barControls = useAnimation()
   const barBackgroundControls = useAnimation()
 
   const sortedSkills = skills.sort((a, b) => a.proficiency < b.proficiency)
   const delay = 0.5 / sortedSkills.length
-  const delay2 = 0.1 / sortedSkills.length
 
   useEffect(() => {
-    if (onScreen) {
+    if (titleOnScreen) {
+      titleControls.start({ opacity: 1, y: 0 })
+    }
+
+    if (skillsOnScreen) {
       barControls.start(i => ({
         opacity: 1,
         width: '100%',
@@ -39,14 +46,27 @@ const Skills = ({ content }) => {
         transition: { delay: i * delay },
       }))
     }
-  }, [onScreen, barControls, iconControls, barBackgroundControls])
+  }, [
+    titleOnScreen,
+    skillsOnScreen,
+    titleControls,
+    barControls,
+    iconControls,
+    barBackgroundControls,
+  ])
 
   return (
-    <section id="skills" className="flex flex-col mt-32 md:h-view">
+    <section id="skills" className="flex flex-col mt-16 md:mt-32 md:h-view">
       <div className="container flex flex-col h-full">
-        <p className="flex mt-4 text-2xl font-bold whitespace-no-wrap heading md:text-4xl dark:text-green-400 mb-4 md:mb-0 md:h-1/6">
-          {frontmatter.title}
-        </p>
+        <motion.div
+          ref={titleReference}
+          initial={{ opacity: 0, y: 20 }}
+          animate={titleControls}
+        >
+          <p className="flex mt-4 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16">
+            {frontmatter.title}
+          </p>
+        </motion.div>
         <div className="flex items-center justify-center md:h-5/6">
           <div className="flex flex-col flex-wrap w-full md:h-full">
             {sortedSkills.map(({ name, icon, proficiency }, index) => {
@@ -57,16 +77,16 @@ const Skills = ({ content }) => {
                 >
                   <motion.div
                     custom={index}
-                    ref={ref}
+                    ref={skillsReference}
                     initial={{ opacity: 0, x: 20 }}
                     animate={iconControls}
-                    className="bg-gray-100 dark:bg-gray-800 shadow-md p-2 rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4"
+                    className="bg-gray-100 dark:bg-gray-800 shadow-md p-2 rounded-sm md:rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4"
                   >
                     <Icon className="w-6 h-6 xl:w-8 xl:h-8" name={icon} />
                   </motion.div>
                   <motion.div
                     custom={index}
-                    ref={ref}
+                    ref={skillsReference}
                     initial={{ opacity: 0, x: 20 }}
                     animate={barBackgroundControls}
                     className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-sm"
@@ -74,10 +94,10 @@ const Skills = ({ content }) => {
                     <div style={{ width: `${proficiency}%` }}>
                       <motion.div
                         custom={index}
-                        ref={ref}
+                        ref={skillsReference}
                         initial={{ opacity: 0, width: 0 }}
                         animate={barControls}
-                        className="h-5 md:h-6 xl:h-8 shadow-none flex flex-col font-bold px-2 text-gray-800 justify-center bg-green-400 text-xs md:text-sm"
+                        className="h-6 xl:h-8 shadow-none flex flex-col font-bold uppercase px-2 text-gray-800 justify-center bg-green-400 text-xs tracking-wider antialiased"
                       >
                         {name}
                       </motion.div>

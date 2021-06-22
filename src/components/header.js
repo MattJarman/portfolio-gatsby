@@ -176,7 +176,7 @@ function StyledNav() {
                   <a
                     href="https://github.com/MattJarman"
                     target="_blank"
-                    className="w-6 h-5 mr-3 fill-current text-gray-400 hover:text-gray-500 dark:text-green-400 dark:hover:text-green-500"
+                    className="w-6 h-6 mr-3 fill-current text-gray-400 hover:text-gray-500 dark:text-green-400 dark:hover:text-green-500"
                     rel="noreferrer"
                   >
                     <Icon name="github" />

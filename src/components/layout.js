@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata?.title || 'Title'} />
       <div className="transition-colors duration-300 dark:bg-rich-black dark:text-gray-200">
-        <div className="flex flex-col justify-between container mx-auto px-8 md:px-32">
+        <div className="flex flex-col justify-between container mx-auto px-8 lg:px-32">
           <main className="mb-auto">{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with{' '}

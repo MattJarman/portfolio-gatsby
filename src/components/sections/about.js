@@ -13,10 +13,10 @@ const About = ({ content }) => {
   const imageControls = useAnimation()
 
   const textReference = useRef()
-  const textOnScreen = useOnScreen(textReference, 0.5)
+  const textOnScreen = useOnScreen(textReference, 0.75)
 
   const imageReference = useRef()
-  const imageOnScreen = useOnScreen(imageReference, 0.5)
+  const imageOnScreen = useOnScreen(imageReference, 0.75)
 
   useEffect(() => {
     if (textOnScreen) {
@@ -38,7 +38,7 @@ const About = ({ content }) => {
             animate={textControls}
             className="text-gray-700 dark:text-gray-300"
           >
-            <p className="flex items-center mt-4 mb-8 text-2xl font-bold whitespace-no-wrap heading md:text-4xl dark:text-green-400">
+            <p className="flex items-center mt-4 mb-4 md:mb-16 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400">
               {frontmatter.title}
             </p>
             <div className="text-base md:text-xl">
@@ -55,7 +55,7 @@ const About = ({ content }) => {
               className="w-1/2 h-auto mx-8 my-4 mb-8 rounded-full shadow-md sm:mx-16 md:w-72 md:h-72 lg:mb-0"
               image={image}
               alt="Me"
-            ></GatsbyImage>
+            />
           </motion.div>
         </div>
       </div>

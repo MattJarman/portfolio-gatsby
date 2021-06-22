@@ -7,6 +7,7 @@ import Seo from '../components/seo'
 import Hero from '../components/sections/hero'
 import About from '../components/sections/about'
 import Skills from '../components/sections/skills'
+import Projects from '../components/sections/projects'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
@@ -18,6 +19,7 @@ const IndexPage = ({ data }) => {
       <Hero content={data.hero.edges} />
       <About content={data.about.edges} />
       <Skills content={data.skills.edges} />
+      <Projects content={data.projects.edges} />
     </Layout>
   )
 }
@@ -79,6 +81,35 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+          }
+        }
+      }
+    }
+    projects: allMdx(
+      filter: { fileAbsolutePath: { regex: "/index/projects/" } }
+    ) {
+      edges {
+        node {
+          body
+          frontmatter {
+            title
+            category
+            emoji
+            external
+            github
+            screenshot {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+            tags
+            position
+            buttonVisible
+            buttonUrl
+            buttonText
           }
         }
       }

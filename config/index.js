@@ -24,8 +24,8 @@ module.exports = {
         icon: 'chart',
       },
       {
-        name: 'Portfolio',
-        url: '/#portfolio',
+        name: 'Projects',
+        url: '/#projects',
         icon: 'github',
       },
     ],
