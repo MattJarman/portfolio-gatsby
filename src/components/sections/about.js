@@ -31,12 +31,12 @@ const About = ({ content }) => {
   return (
     <section id="about" className="flex flex-col">
       <div className="container flex flex-col flex-grow">
-        <div className="flex flex-col items-center flex-grow lg:flex-row">
+        <div className="flex flex-col items-center flex-grow md:flex-row">
           <motion.div
             ref={textReference}
             initial={{ opacity: 0, y: 20 }}
             animate={textControls}
-            className="text-gray-700 dark:text-gray-300"
+            className="text-gray-700 dark:text-gray-300 text-center md:text-left"
           >
             <p className="flex items-center mt-4 mb-4 md:mb-16 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400">
               {frontmatter.title}
@@ -49,10 +49,10 @@ const About = ({ content }) => {
             ref={imageReference}
             initial={{ opacity: 0, x: 20 }}
             animate={imageControls}
-            className="flex items-center justify-center flex-grow w-full lg:ml-24"
+            className="flex items-center justify-center flex-grow w-full xl:ml-24"
           >
             <GatsbyImage
-              className="w-1/2 h-auto mx-8 my-4 mb-8 rounded-full shadow-md sm:mx-16 md:w-72 md:h-72 lg:mb-0"
+              className="w-1/2 h-auto mx-8 my-4 mb-8 rounded-full shadow-md sm:mx-16 md:w-72 md:h-72 md:mb-0"
               image={image}
               alt="Me"
             />

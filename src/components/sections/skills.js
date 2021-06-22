@@ -56,7 +56,7 @@ const Skills = ({ content }) => {
   ])
 
   return (
-    <section id="skills" className="flex flex-col mt-16 md:mt-32 md:h-view">
+    <section id="skills" className="flex flex-col mt-16 md:mt-32">
       <div className="container flex flex-col h-full">
         <motion.div
           ref={titleReference}
@@ -67,12 +67,12 @@ const Skills = ({ content }) => {
             {frontmatter.title}
           </p>
         </motion.div>
-        <div className="flex items-center justify-center md:h-5/6">
-          <div className="flex flex-col flex-wrap w-full md:h-full">
+        <div className="flex items-center justify-center">
+          <div className="w-full grid gap-y-2 grid-cols-1 md:grid-cols-none md:grid-rows-6 md:grid-flow-col xl:gap-y-4">
             {sortedSkills.map(({ name, icon, proficiency }, index) => {
               return (
                 <div
-                  className="flex flex-row items-center justify-center mb-2 xl:mb-4"
+                  className="flex flex-row items-center justify-center"
                   key={`skills-${index}`}
                 >
                   <motion.div
