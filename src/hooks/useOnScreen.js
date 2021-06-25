@@ -7,7 +7,10 @@ export default (ref, threshold = 0.25) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIntersecting(entry.isIntersecting)
+        if (entry.isIntersecting) {
+          setIntersecting(true)
+          observer.unobserve(entry.target)
+        }
       },
       {
         threshold,

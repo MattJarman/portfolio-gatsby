@@ -87,6 +87,7 @@ export const pageQuery = graphql`
     }
     projects: allMdx(
       filter: { fileAbsolutePath: { regex: "/index/projects/" } }
+      sort: { fields: [frontmatter___position], order: ASC }
     ) {
       edges {
         node {
@@ -107,7 +108,6 @@ export const pageQuery = graphql`
             }
             tags
             position
-            buttonVisible
             buttonUrl
             buttonText
           }

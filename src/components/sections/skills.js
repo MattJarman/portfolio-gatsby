@@ -58,15 +58,14 @@ const Skills = ({ content }) => {
   return (
     <section id="skills" className="flex flex-col mt-16 md:mt-32">
       <div className="container flex flex-col h-full">
-        <motion.div
+        <motion.p
           ref={titleReference}
           initial={{ opacity: 0, y: 20 }}
           animate={titleControls}
+          className="flex mt-4 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16"
         >
-          <p className="flex mt-4 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16">
-            {frontmatter.title}
-          </p>
-        </motion.div>
+          {frontmatter.title}
+        </motion.p>
         <div className="flex items-center justify-center">
           <div className="w-full grid gap-y-2 grid-cols-1 md:grid-cols-none md:grid-rows-6 md:grid-flow-col xl:gap-y-4">
             {sortedSkills.map(({ name, icon, proficiency }, index) => {
