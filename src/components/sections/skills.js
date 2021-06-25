@@ -79,7 +79,7 @@ const Skills = ({ content }) => {
                     ref={skillsReference}
                     initial={{ opacity: 0, x: 20 }}
                     animate={iconControls}
-                    className="bg-gray-100 dark:bg-gray-800 shadow-md p-2 rounded-sm md:rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4"
+                    className="border border-gray-200 dark:border-0 dark:border-transparent dark:bg-gray-800 shadow-md p-2 rounded-md min-w-12 w-12 h-12 xl:min-w-16 xl:w-16 xl:h-16 flex items-center justify-center mr-4"
                   >
                     <Icon className="w-6 h-6 xl:w-8 xl:h-8" name={icon} />
                   </motion.div>

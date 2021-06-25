@@ -20,6 +20,7 @@ import Node from './node'
 import PHP from './php'
 import ReactJS from './react'
 import Vue from './vue'
+import External from './external'
 
 const Icon = props => {
   switch (props.name.toLowerCase()) {
@@ -59,6 +60,8 @@ const Icon = props => {
       return <Moon {...props} />
     case 'sun':
       return <Sun {...props} />
+    case 'external':
+      return <External {...props} />
   }
 }
 

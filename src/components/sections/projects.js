@@ -5,6 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { motion } from 'framer-motion'
 import { useOnScreen } from '../../hooks'
 import { InView } from 'react-intersection-observer'
+import Icon from '../icons'
 
 const Projects = ({ content }) => {
   const details = content[0].node
@@ -47,7 +48,7 @@ const Projects = ({ content }) => {
                 {({ inView, ref }) => (
                   <motion.div
                     ref={ref}
-                    className={`w-full flex flex-col justify-center md:space-x-16 bg-gray-800 md:bg-transparent rounded-md ${
+                    className={`w-full flex flex-col justify-center md:space-x-16 bg-white shadow-lg md:shadow-none dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent rounded-md ${
                       index % 2 !== 0
                         ? 'md:flex-row-reverse md:space-x-reverse'
                         : 'md:flex-row'
@@ -58,20 +59,48 @@ const Projects = ({ content }) => {
                   >
                     <div className="flex items-center justify-center md:w-1/2">
                       <GatsbyImage
-                        className="rounded-t-md md:rounded-lg shadow-lg"
+                        className="rounded-t-md md:rounded-lg"
                         alt={frontmatter.title}
                         image={image}
                       />
                     </div>
-                    <div className="content md:w-1/2 p-4 md:p-0">
-                      <p className="uppercase tracking-widest text-sm text-gray-300">
-                        {frontmatter.category}
-                      </p>
-                      <p className="title text-3xl text-green-400 tracking-wider font-bold mb-4">
-                        {frontmatter.title} {frontmatter.emoji}
-                      </p>
-                      <div className="text-xs md:text-sm lg:text-base tracking-wide">
-                        <MDXRenderer>{body}</MDXRenderer>
+                    <div className="content flex flex-col md:w-1/2 p-4 md:p-0">
+                      <div className="flex-grow">
+                        <p className="uppercase tracking-widest text-sm text-gray-500 dark:text-gray-300">
+                          {frontmatter.category}
+                        </p>
+                        <p className="title text-3xl text-green-500 dark:text-green-400 tracking-wider font-bold mb-4">
+                          {frontmatter.title} {frontmatter.emoji}
+                        </p>
+                        <div className="text-xs md:text-sm lg:text-base tracking-wide">
+                          <MDXRenderer>{body}</MDXRenderer>
+                        </div>
+                      </div>
+                      <div
+                        className={`flex items-center space-x-2 justify-end mt-2 ${
+                          index % 2 !== 0
+                            ? 'md:flex-row-reverse md:space-x-reverse'
+                            : ''
+                        }`}
+                      >
+                        {frontmatter.external && (
+                          <a
+                            className="text-green-400 w-6 h-6"
+                            target="_blank"
+                            rel="noreferrer"
+                            href={frontmatter.external}
+                          >
+                            <Icon className="fill-current" name="external" />
+                          </a>
+                        )}
+                        <a
+                          className="text-green-400 w-6 h-6"
+                          target="_blank"
+                          rel="noreferrer"
+                          href={frontmatter.github}
+                        >
+                          <Icon className="fill-current" name="github" />
+                        </a>
                       </div>
                     </div>
                   </motion.div>
