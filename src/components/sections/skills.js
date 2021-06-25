@@ -8,11 +8,11 @@ const Skills = ({ content }) => {
   const { frontmatter, exports } = content[0].node
   const { skills } = exports
 
-  const skillsReference = useRef()
   const titleReference = useRef()
+  const skillsReference = useRef()
 
   const titleOnScreen = useOnScreen(titleReference)
-  const skillsOnScreen = useOnScreen(skillsReference)
+  const skillsOnScreen = useOnScreen(skillsReference, 0.5)
 
   const titleControls = useAnimation()
   const iconControls = useAnimation()
@@ -67,7 +67,10 @@ const Skills = ({ content }) => {
           {frontmatter.title}
         </motion.p>
         <div className="flex items-center justify-center">
-          <div className="w-full grid gap-y-2 grid-cols-1 md:grid-cols-none md:grid-rows-6 md:grid-flow-col xl:gap-y-4">
+          <motion.div
+            ref={skillsReference}
+            className="w-full grid gap-y-2 grid-cols-1 md:grid-cols-none md:grid-rows-6 md:grid-flow-col xl:gap-y-4"
+          >
             {sortedSkills.map(({ name, icon, proficiency }, index) => {
               return (
                 <div
@@ -85,7 +88,6 @@ const Skills = ({ content }) => {
                   </motion.div>
                   <motion.div
                     custom={index}
-                    ref={skillsReference}
                     initial={{ opacity: 0, x: 20 }}
                     animate={barBackgroundControls}
                     className="w-full bg-gray-100 dark:bg-gray-700 mr-4 shadow-lg border-2 border-green-400 rounded-sm"
@@ -105,7 +107,7 @@ const Skills = ({ content }) => {
                 </div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
