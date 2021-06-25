@@ -12,7 +12,7 @@ const Skills = ({ content }) => {
   const titleReference = useRef()
 
   const titleOnScreen = useOnScreen(titleReference)
-  const skillsOnScreen = useOnScreen(skillsReference, 0.5)
+  const skillsOnScreen = useOnScreen(skillsReference)
 
   const titleControls = useAnimation()
   const iconControls = useAnimation()

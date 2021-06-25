@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
   const { seoTitle } = frontmatter
 
   return (
-    <Layout>
+    <Layout siteTitle={seoTitle}>
       <Seo title={seoTitle} />
       <Hero content={data.hero.edges} />
       <About content={data.about.edges} />
