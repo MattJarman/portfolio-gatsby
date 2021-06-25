@@ -64,7 +64,7 @@ const Hero = ({ content }) => {
                 href={url}
               >
                 <Icon
-                  className="cursor-pointer text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-10 h-10 mr-2"
+                  className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500 fill-current w-10 h-10 mr-2"
                   name={icon}
                 />
               </motion.a>

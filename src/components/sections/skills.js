@@ -62,7 +62,7 @@ const Skills = ({ content }) => {
           ref={titleReference}
           initial={{ opacity: 0, y: 20 }}
           animate={titleControls}
-          className="flex mt-4 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16"
+          className="flex mt-4 text-gray-700 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16"
         >
           {frontmatter.title}
         </motion.p>

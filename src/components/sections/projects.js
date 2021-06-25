@@ -14,18 +14,25 @@ const Projects = ({ content }) => {
     (a, b) => a.node.frontmatter.position > b.node.frontmatter.position
   )
 
+  const titleReference = useRef()
+  const buttonReference = useRef()
+
+  const titleOnScreen = useOnScreen(titleReference, 0.75)
+  const buttonOnScreen = useOnScreen(buttonReference, 0.75)
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
+
   const projectVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   }
 
-  const titleReference = useRef()
-
-  const titleOnScreen = useOnScreen(titleReference, 0.75)
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+  const buttonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   }
 
   return (
@@ -35,7 +42,7 @@ const Projects = ({ content }) => {
           ref={titleReference}
           variants={titleVariants}
           animate={titleOnScreen ? 'visible' : 'hidden'}
-          className="flex mt-4 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16"
+          className="flex mt-4 text-4xl text-gray-700 font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400 mb-4 md:mb-16"
         >
           {details.frontmatter.title}
         </motion.div>
@@ -72,35 +79,49 @@ const Projects = ({ content }) => {
                         <p className="title text-3xl text-green-500 dark:text-green-400 tracking-wider font-bold mb-4">
                           {frontmatter.title} {frontmatter.emoji}
                         </p>
-                        <div className="text-xs md:text-sm lg:text-base tracking-wide">
+                        <div className="text-xs md:text-base lg:text-base tracking-wide">
                           <MDXRenderer>{body}</MDXRenderer>
                         </div>
                       </div>
-                      <div
-                        className={`flex items-center space-x-2 justify-end mt-2 ${
-                          index % 2 !== 0
-                            ? 'md:flex-row-reverse md:space-x-reverse'
-                            : ''
-                        }`}
-                      >
-                        {frontmatter.external && (
+                      <div className={`flex mt-4`}>
+                        <div className="-m-1 tags flex-wrap flex-grow flex items-center">
+                          {frontmatter.tags.map((tag, index) => {
+                            return (
+                              <span
+                                className="m-1 text-xs bg-gray-100 dark:bg-rich-black px-3 py-1 rounded-sm rounded-full tracking-wider"
+                                key={`${frontmatter.id}-${index}`}
+                              >
+                                {tag}
+                              </span>
+                            )
+                          })}
+                        </div>
+                        <div className="links flex flex-row space-x-2 ml-1">
+                          {frontmatter.external && (
+                            <a
+                              className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500"
+                              target="_blank"
+                              rel="noreferrer"
+                              href={frontmatter.external}
+                            >
+                              <Icon
+                                className="w-6 h-6 fill-current"
+                                name="external"
+                              />
+                            </a>
+                          )}
                           <a
-                            className="text-green-400 w-6 h-6"
+                            className="text-green-500 dark:text-green-400 hover:text-green-600 dark:hover:text-green-500"
                             target="_blank"
                             rel="noreferrer"
-                            href={frontmatter.external}
+                            href={frontmatter.github}
                           >
-                            <Icon className="fill-current" name="external" />
+                            <Icon
+                              className="w-6 h-6 fill-current"
+                              name="github"
+                            />
                           </a>
-                        )}
-                        <a
-                          className="text-green-400 w-6 h-6"
-                          target="_blank"
-                          rel="noreferrer"
-                          href={frontmatter.github}
-                        >
-                          <Icon className="fill-current" name="github" />
-                        </a>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -108,6 +129,21 @@ const Projects = ({ content }) => {
               </InView>
             )
           })}
+          <div className="flex justify-center">
+            <motion.a
+              ref={buttonReference}
+              variants={buttonVariants}
+              animate={buttonOnScreen ? 'visible' : 'hidden'}
+              className="w-64 h-16 rounded-xl border-2 border-green-400 dark:bg-gray-800 flex items-center justify-center transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              target="_blank"
+              rel="noreferrer"
+              href={details.frontmatter.buttonUrl}
+            >
+              <p className=" font-bold text-xl text-green-500 dark:text-green-400 tracking-wide">
+                {details.frontmatter.buttonText}
+              </p>
+            </motion.a>
+          </div>
         </div>
       </div>
     </section>

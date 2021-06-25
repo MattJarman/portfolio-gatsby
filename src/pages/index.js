@@ -93,6 +93,7 @@ export const pageQuery = graphql`
         node {
           body
           frontmatter {
+            id
             title
             category
             emoji

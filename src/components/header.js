@@ -71,7 +71,7 @@ function StyledNav() {
                   <a
                     key={`main-menu-${index}`}
                     href={url}
-                    className="text-xl font-bold text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-400"
+                    className="text-xl font-bold text-gray-700 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400"
                   >
                     {name}
                   </a>
