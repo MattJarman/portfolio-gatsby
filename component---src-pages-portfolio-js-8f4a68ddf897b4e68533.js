@@ -1,2 +1,0 @@
-(self.webpackChunkportfolio_gatsby=self.webpackChunkportfolio_gatsby||[]).push([[25],{8994:function(e,t,l){"use strict";l.r(t),l.d(t,{default:function(){return u}});var n=l(7294),o=l(1998),r=l(3751);function u(){return n.createElement(o.Z,null,n.createElement(r.Z,{title:"Portfolio"}),n.createElement("div",null,"Hello, World"))}}}]);
-//# sourceMappingURL=component---src-pages-portfolio-js-8f4a68ddf897b4e68533.js.map
