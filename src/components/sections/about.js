@@ -5,8 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { useOnScreen } from '../../hooks'
 
-const About = ({ content }) => {
-  const { frontmatter, body } = content[0].node
+const About = ({ frontmatter, body }) => {
   const image = getImage(frontmatter.image)
 
   const textControls = useAnimation()
@@ -64,14 +63,11 @@ const About = ({ content }) => {
 }
 
 About.propTypes = {
-  content: PropTypes.arrayOf(
-    PropTypes.shape({
-      node: PropTypes.shape({
-        body: PropTypes.string.isRequired,
-        frontmatter: PropTypes.object.isRequired,
-      }).isRequired,
-    }).isRequired
-  ).isRequired,
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.any.isRequired,
+  }).isRequired,
+  body: PropTypes.string.isRequired,
 }
 
 export default About

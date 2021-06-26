@@ -13,13 +13,19 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
   const { seoTitle } = frontmatter
 
+  const heroNode = data.hero.edges[0].node
+  const aboutNode = data.about.edges[0].node
+  const skillsFrontmatter = data.skillsFrontmatter.edges[0].node.frontmatter
+  const projectsFrontmatter = data.projects.edges[0].node.frontmatter
+  const projects = data.projects.edges.slice(1, data.projects.edges.length)
+
   return (
     <Layout siteTitle={seoTitle}>
       <Seo title={seoTitle} />
-      <Hero content={data.hero.edges} />
-      <About content={data.about.edges} />
-      <Skills content={data.skills.edges} />
-      <Projects content={data.projects.edges} />
+      <Hero frontmatter={heroNode.frontmatter} body={heroNode.body} />
+      <About frontmatter={aboutNode.frontmatter} body={aboutNode.body} />
+      <Skills frontmatter={skillsFrontmatter} skills={data.skills.edges} />
+      <Projects frontmatter={projectsFrontmatter} projects={projects} />
     </Layout>
   )
 }
@@ -69,19 +75,23 @@ export const pageQuery = graphql`
         }
       }
     }
-    skills: allMdx(filter: { fileAbsolutePath: { regex: "/index/skills/" } }) {
+    skillsFrontmatter: allMdx(
+      filter: { fileAbsolutePath: { regex: "/index/skills/" } }
+    ) {
       edges {
         node {
-          exports {
-            skills {
-              name
-              icon
-              proficiency
-            }
-          }
           frontmatter {
             title
           }
+        }
+      }
+    }
+    skills: allSkillsJson(sort: { fields: [proficiency], order: DESC }) {
+      edges {
+        node {
+          name
+          icon
+          proficiency
         }
       }
     }

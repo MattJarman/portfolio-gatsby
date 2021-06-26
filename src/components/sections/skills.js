@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 import { useOnScreen } from '../../hooks'
 import { motion, useAnimation } from 'framer-motion'
 
-const Skills = ({ content }) => {
-  const { frontmatter, exports } = content[0].node
-  const { skills } = exports
-
+const Skills = ({ frontmatter, skills }) => {
   const titleReference = useRef()
   const skillsReference = useRef()
 
@@ -19,8 +16,7 @@ const Skills = ({ content }) => {
   const barControls = useAnimation()
   const barBackgroundControls = useAnimation()
 
-  const sortedSkills = skills.sort((a, b) => a.proficiency < b.proficiency)
-  const delay = 0.5 / sortedSkills.length
+  const delay = 0.5 / skills.length
 
   useEffect(() => {
     if (titleOnScreen) {
@@ -71,7 +67,8 @@ const Skills = ({ content }) => {
             ref={skillsReference}
             className="w-full grid gap-y-2 grid-cols-1 md:grid-cols-none md:grid-rows-6 md:grid-flow-col xl:gap-y-4"
           >
-            {sortedSkills.map(({ name, icon, proficiency }, index) => {
+            {skills.map((skill, index) => {
+              const { name, icon, proficiency } = skill.node
               return (
                 <div
                   className="flex flex-row items-center justify-center"
@@ -115,11 +112,15 @@ const Skills = ({ content }) => {
 }
 
 Skills.propTypes = {
-  content: PropTypes.arrayOf(
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  skills: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
-        exports: PropTypes.object.isRequired,
-        frontmatter: PropTypes.object.isRequired,
+        name: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        proficiency: PropTypes.number.isRequired,
       }).isRequired,
     }).isRequired
   ).isRequired,
