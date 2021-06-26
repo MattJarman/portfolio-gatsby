@@ -18,10 +18,6 @@ module.exports = {
         },
       },
     },
-    minHeight: {
-      12: '3rem',
-      16: '4rem',
-    },
     minWidth: {
       12: '3rem',
       16: '4rem',

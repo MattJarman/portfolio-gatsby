@@ -43,9 +43,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div className="transition-colors duration-300 dark:bg-rich-black dark:text-gray-200">
+      <div className="flex flex-col transition-colors duration-300 dark:bg-rich-black dark:text-gray-200 min-h-screen">
         <Header />
-        <main className="container mx-auto px-4 lg:px-32 mb-auto">
+        <main className="container mx-auto px-4 lg:px-32 mb-auto flex-grow">
           {children}
         </main>
         <Footer siteTitle={site.siteMetadata.title} />
