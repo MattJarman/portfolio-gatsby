@@ -1,0 +1,20 @@
+---
+id: 'stock-alerts'
+title: 'Stock Alerts'
+category: 'Side Project'
+emoji: '🔔'
+screenshot: './stock-alerts.png'
+github: https://github.com/MattJarman/stock-alerts'
+external: ''
+tags:
+  - TypeScript
+  - DynamoDB
+  - Lambda
+  - SNS
+  - Jest
+position: 1
+---
+
+An AWS Lambda function scheduled to check for products in stock, with DynamoDB for recording when an alert was last sent
+(to prevent spam), and SNS to then alert a user via SMS. <a className="text-green-600 dark:text-green-400" href="https://developers.google.com/web/tools/puppeteer">Puppeteer</a>
+is used to check for a specified selector, so adding new products is super simple!

@@ -8,16 +8,23 @@ import { useOnScreen } from '../../hooks'
 const About = ({ frontmatter, body }) => {
   const image = getImage(frontmatter.image)
 
+  const titleControls = useAnimation()
   const textControls = useAnimation()
   const imageControls = useAnimation()
 
+  const titleReference = useRef()
   const textReference = useRef()
-  const textOnScreen = useOnScreen(textReference, 0.75)
-
   const imageReference = useRef()
+
+  const titleOnScreen = useOnScreen(titleReference)
+  const textOnScreen = useOnScreen(textReference, 0.75)
   const imageOnScreen = useOnScreen(imageReference, 0.75)
 
   useEffect(() => {
+    if (titleOnScreen) {
+      titleControls.start({ opacity: 1, y: 0 })
+    }
+
     if (textOnScreen) {
       textControls.start({ opacity: 1, y: 0 })
     }
@@ -25,24 +32,34 @@ const About = ({ frontmatter, body }) => {
     if (imageOnScreen) {
       imageControls.start({ opacity: 1, x: 0 })
     }
-  }, [textControls, imageControls, textOnScreen, imageOnScreen])
+  }, [
+    titleOnScreen,
+    textOnScreen,
+    imageOnScreen,
+    titleControls,
+    textControls,
+    imageControls,
+  ])
 
   return (
     <section id="about" className="flex flex-col">
       <div className="container flex flex-col flex-grow">
+        <motion.p
+          ref={titleReference}
+          initial={{ opacity: 0, y: 20 }}
+          animate={titleControls}
+          className="flex items-center mt-4 mb-4 md:mb-16 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400"
+        >
+          {frontmatter.title}
+        </motion.p>
         <div className="flex flex-col items-center flex-grow md:flex-row">
           <motion.div
             ref={textReference}
             initial={{ opacity: 0, y: 20 }}
             animate={textControls}
-            className="text-gray-700 dark:text-gray-300 text-center md:text-left"
+            className="text-gray-700 dark:text-gray-300 text-center md:text-left text-base md:text-xl"
           >
-            <p className="flex items-center mt-4 mb-4 md:mb-16 text-4xl font-bold whitespace-no-wrap heading md:text-5xl dark:text-green-400">
-              {frontmatter.title}
-            </p>
-            <div className="text-base md:text-xl">
-              <MDXRenderer>{body}</MDXRenderer>
-            </div>
+            <MDXRenderer>{body}</MDXRenderer>
           </motion.div>
           <motion.div
             ref={imageReference}
