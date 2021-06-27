@@ -63,7 +63,7 @@ const About = ({ frontmatter, body }) => {
           </motion.div>
           <motion.div
             ref={imageReference}
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 10 }}
             animate={imageControls}
             className="flex items-center justify-center flex-grow w-full xl:ml-24"
           >

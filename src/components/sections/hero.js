@@ -47,7 +47,7 @@ const Hero = ({ frontmatter, body }) => {
           </div>
         </div>
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 10 }}
           animate={socialControls}
           className="flex flex-row"
         >
