@@ -82,7 +82,7 @@ const Projects = ({ frontmatter, projects }) => {
                           {projectFrontmatter.tags.map((tag, index) => {
                             return (
                               <span
-                                className="m-1 text-xs bg-gray-100 dark:bg-rich-black md:dark:bg-gray-800 px-3 py-1 rounded-sm rounded-full tracking-wider"
+                                className="m-1 text-xs bg-gray-100 dark:bg-rich-black md:dark:bg-gray-800 px-3 py-1 rounded-full tracking-wider"
                                 key={`${projectFrontmatter.id}-${index}`}
                               >
                                 {tag}
